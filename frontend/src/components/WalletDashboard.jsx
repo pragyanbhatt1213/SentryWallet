@@ -64,11 +64,19 @@ const WalletDashboard = ({ wallet }) => {
           <SendTransaction wallet={wallet} onTransactionSuccess={handleTransactionSuccess} />
         </div>
 
+<<<<<<< HEAD
         {/* Nominee Manager Section (on-chain) */}
         <div className="mt-8">
           <h2 className="text-xl font-semibold text-accent mb-4 flex items-center">
             <UserPlus className="w-5 h-5 mr-2" />
             Nominee Manager (On-chain)
+=======
+        {/* Nominee Manager Section */}
+        <div>
+          <h2 className="text-xl font-semibold text-accent mb-4 flex items-center">
+            <UserPlus className="w-5 h-5 mr-2" />
+            Nominee Manager
+>>>>>>> 7449015e2c7871b4e7f0bb34a5c54550e0f30bc1
           </h2>
           <NomineeManager user={user} />
         </div>
