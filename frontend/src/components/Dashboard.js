@@ -15,6 +15,7 @@ const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showWalletManager, setShowWalletManager] = useState(false);
+  const [initialSection, setInitialSection] = useState(null);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -84,10 +85,13 @@ const Dashboard = () => {
 
   if (showWalletManager) {
     return (
-      <WalletManager 
-        user={user} 
-        onBack={() => setShowWalletManager(false)} 
-      />
+      <main className="flex-1 p-8 overflow-y-auto w-full mx-auto max-w-7xl">
+        <WalletManager 
+          user={user} 
+          onBack={() => setShowWalletManager(false)} 
+          initialSection={initialSection}
+        />
+      </main>
     );
   }
 
@@ -174,13 +178,13 @@ const Dashboard = () => {
 
           {/* Quick Actions */}
           <motion.div 
-            className="grid md:grid-cols-3 gap-6 mb-12"
+            className="flex justify-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
             <motion.div
-              className="neumorphic rounded-3xl p-8 text-center group hover:shadow-xl transition-all duration-300"
+              className="neumorphic rounded-3xl p-8 text-center group hover:shadow-xl transition-all duration-300 w-full max-w-xl"
               whileHover={{ scale: 1.02, y: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -200,52 +204,16 @@ const Dashboard = () => {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </button>
             </motion.div>
-
-            <motion.div
-              className="neumorphic rounded-3xl p-8 text-center group hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.02, y: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-accent/20 to-accent/10 rounded-2xl flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/20 transition-all duration-300">
-                <Shield className="w-8 h-8 text-accent" />
-              </div>
-              <h3 className="text-xl font-bold text-accent mb-4">Security</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Your wallets are secured with password encryption and stored safely in your browser.
-              </p>
-              <button className="flex items-center justify-center w-full px-6 py-3 bg-accent text-white rounded-xl hover:bg-accent/90 transition-all duration-300 font-medium shadow-lg hover:shadow-xl">
-                <Shield className="w-4 h-4 mr-2" />
-                Security Settings
-              </button>
-            </motion.div>
-
-            <motion.div
-              className="neumorphic rounded-3xl p-8 text-center group hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.02, y: -5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-green-500/20 to-green-400/10 rounded-2xl flex items-center justify-center group-hover:from-green-500/30 group-hover:to-green-400/20 transition-all duration-300">
-                <Settings className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-bold text-accent mb-4">Settings</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Customize your wallet preferences and manage your account settings.
-              </p>
-              <button className="flex items-center justify-center w-full px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-500 transition-all duration-300 font-medium shadow-lg hover:shadow-xl">
-                <Settings className="w-4 h-4 mr-2" />
-                Open Settings
-              </button>
-            </motion.div>
           </motion.div>
 
           {/* User Info Card */}
           <motion.div
-            className="neumorphic rounded-3xl p-8 shadow-lg"
+            className="neumorphic rounded-3xl p-8 shadow-lg w-full max-w-xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <h2 className="text-2xl font-bold text-accent mb-6 flex items-center">
+            <h2 className="text-2xl font-bold text-accent mb-6 flex items-center justify-center">
               <User className="w-6 h-6 mr-3" />
               Account Information
             </h2>

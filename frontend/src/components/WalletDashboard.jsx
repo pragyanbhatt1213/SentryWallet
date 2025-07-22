@@ -28,59 +28,58 @@ const WalletDashboard = ({ wallet }) => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4">
-      <motion.div
-        className="neumorphic rounded-3xl p-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 mx-auto mb-6 bg-primary/20 rounded-3xl flex items-center justify-center">
-            <Wallet className="w-10 h-10 text-primary" />
+    <div className="px-6 py-10 bg-gray-50 min-h-screen w-full mx-auto max-w-7xl">
+      <div className="mb-6">
+        <button
+          onClick={() => window.history.back()}
+          className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors duration-200 ease-in-out flex items-center gap-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Back to Dashboard
+        </button>
+      </div>
+      <h1 className="text-2xl font-semibold text-gray-800 mb-6">Welcome to Your Wallet Dashboard</h1>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Left Column: Wallet */}
+        <div className="relative bg-white rounded-xl shadow-md p-6 space-y-6 transition-all duration-200 ease-in-out hover:shadow-lg">
+          <div className="text-center">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-100 to-blue-200 flex items-center justify-center animate-pulse mx-auto mb-4">
+              <Wallet className="w-6 h-6 text-blue-600" />
+            </div>
+            <h1 className="text-2xl font-bold text-gray-800 mb-2">Your Wallet</h1>
+            <p className="text-gray-500 text-sm font-mono truncate bg-gray-100 rounded-lg p-2 max-w-[400px] mx-auto">
+              {wallet.address}
+            </p>
           </div>
-          <h1 className="text-3xl font-bold text-accent mb-2">Your Wallet</h1>
-          <p className="text-gray-600 font-mono text-sm break-all bg-gray-100 rounded-lg p-2">
-            {wallet.address}
-          </p>
+
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-lg font-semibold text-gray-700 mb-3 flex items-center">
+                <DollarSign className="w-5 h-5 mr-2 text-green-600" />
+                Balance
+              </h2>
+              <WalletBalance wallet={wallet} transactionCount={transactionCount} />
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-gray-700 mb-3 flex items-center">
+                <Send className="w-5 h-5 mr-2 text-purple-600" />
+                Send Transaction
+              </h2>
+              <SendTransaction wallet={wallet} onTransactionSuccess={handleTransactionSuccess} />
+            </div>
+          </div>
         </div>
 
-        {/* Balance Section */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold text-accent mb-4 flex items-center">
-            <DollarSign className="w-5 h-5 mr-2" />
-            Balance
-          </h2>
-          <WalletBalance wallet={wallet} transactionCount={transactionCount} />
-        </div>
-
-        {/* Send Transaction Section */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold text-accent mb-4 flex items-center">
-            <Send className="w-5 h-5 mr-2" />
-            Send Transaction
-          </h2>
-          <SendTransaction wallet={wallet} onTransactionSuccess={handleTransactionSuccess} />
-        </div>
-
-<<<<<<< HEAD
-        {/* Nominee Manager Section (on-chain) */}
-        <div className="mt-8">
-          <h2 className="text-xl font-semibold text-accent mb-4 flex items-center">
-            <UserPlus className="w-5 h-5 mr-2" />
-            Nominee Manager (On-chain)
-=======
-        {/* Nominee Manager Section */}
-        <div>
-          <h2 className="text-xl font-semibold text-accent mb-4 flex items-center">
-            <UserPlus className="w-5 h-5 mr-2" />
+        {/* Right Column: Nominee Manager */}
+        <div className="relative bg-white rounded-xl shadow-md p-6 space-y-4 transition-all duration-200 ease-in-out hover:shadow-lg">
+          <h2 className="text-lg font-semibold text-gray-700 mb-3 flex items-center">
+            <UserPlus className="w-5 h-5 mr-2 text-orange-600" />
             Nominee Manager
->>>>>>> 7449015e2c7871b4e7f0bb34a5c54550e0f30bc1
           </h2>
           <NomineeManager user={user} />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
