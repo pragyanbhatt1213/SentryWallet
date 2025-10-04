@@ -2,16 +2,12 @@
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
 import { motion } from 'framer-motion';
-<<<<<<< Updated upstream
-import { Loader2, AlertCircle, Send } from 'lucide-react';
-=======
 import { Loader2, AlertCircle, Send, CheckCircle } from 'lucide-react';
 import SentryInheritance from '../contracts/SentryInheritance.json';
 import { addLocalTransaction } from '../utils/localHistory';
 import { supabase } from '../utils/wallet';
 
 const contractAddress = process.env.REACT_APP_INHERITANCE_CONTRACT_ADDRESS;
->>>>>>> Stashed changes
 
 const SendTransaction = ({ wallet, onTransactionSuccess }) => {
   const [toAddress, setToAddress] = useState('');
@@ -97,11 +93,6 @@ const SendTransaction = ({ wallet, onTransactionSuccess }) => {
     }
   };
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
   const inputClass = "w-full px-4 py-3 border rounded-2xl focus:ring-2 outline-none transition-all duration-200";
   const inputStyle = { border: '1px solid rgba(255, 255, 255, 0.4)', background: 'rgba(255, 255, 255, 0.25)', color: '#0A1A16', backdropFilter: 'blur(10px)' };
   const buttonClass = `w-full flex items-center justify-center px-6 py-4 rounded-xl font-semibold transition-all duration-300`;
@@ -109,7 +100,6 @@ const SendTransaction = ({ wallet, onTransactionSuccess }) => {
   ? { background: 'rgba(255, 255, 255, 0.25)', color: '#1B2E29', cursor: 'not-allowed', opacity: 0.7 }
   : { background: 'linear-gradient(90deg, #00C1A0 0%, #00A48B 100%)', color: '#fff', boxShadow: '0 2px 8px #00B49F' };
 
->>>>>>> Stashed changes
   return (
     <motion.div
       className="max-w-xl mx-auto p-6"
