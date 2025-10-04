@@ -1,0 +1,12 @@
+import React from 'react';
+import NomineeManager from '../components/NomineeManager';
+
+const NomineeSettingsPage = ({ user }) => {
+    return (
+        <div style={{ background: 'linear-gradient(180deg, #E8FFF5 0%, #C2F3E0 100%)', color: '#0A1A16', minHeight: '100vh' }}>
+            <NomineeManager user={user} />
+        </div>
+    );
+};
+
+export default NomineeSettingsPage;
