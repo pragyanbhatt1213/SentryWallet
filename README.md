@@ -15,7 +15,7 @@
 
 *Bridging Web2 simplicity with Web3 power through social recovery and inheritance*
 
-[🌐 Live Demo](#) • [📖 Documentation](#setup-and-installation) • [🎥 Video Demo](#) • [🔗 Smart Contract](#smart-contract)
+[🌐 Live Demo](https://sentry-wallet-final.vercel.app/) • [📖 Documentation](#setup-and-installation) • [🎥 Video Demo](#) • [🔗 Smart Contract](#smart-contract)
 
 </div>
 
@@ -583,3 +583,4 @@ copies or substantial portions of the Software.
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=opensourceinitiative)](https://opensource.org/licenses/MIT)
 
 </div>
+
